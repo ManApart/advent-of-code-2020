@@ -16,6 +16,12 @@ class SumMultiplierTest {
     }
 
     @Test
+    fun findSumOfThree() {
+        val actual = findSumMultiplier3(9, listOf(3, 3, 3))
+        assertEquals(listOf(3, 3, 3), actual)
+    }
+
+    @Test
     fun findSumAndMultiply() {
         val numbers = listOf(1721, 979, 366, 299, 675, 1456)
         val actual = findAndMultiply(2020, numbers)
