@@ -3,6 +3,11 @@ fun findAndMultiply(targetSum: Int, numbers: List<Int>): Int {
     return matches.reduce { acc: Int, i: Int -> i * acc }
 }
 
+fun findAndMultiply3(targetSum: Int, numbers: List<Int>): Int {
+    val matches = findSumMultiplier3(targetSum, numbers)
+    return matches.reduce { acc: Int, i: Int -> i * acc }
+}
+
 fun findSumMultiplier(targetSum: Int, numbers: List<Int>): List<Int> {
     numbers.forEach { first ->
         numbers.forEach { second ->
