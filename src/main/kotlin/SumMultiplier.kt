@@ -1,11 +1,12 @@
 fun findAndMultiply(targetSum: Int, numbers: List<Int>): Int {
-    return 0
+    val matches = findSumMultiplier(targetSum, numbers)
+    return matches.first * matches.second
 }
 
 fun findSumMultiplier(targetSum: Int, numbers: List<Int>): Pair<Int, Int> {
     numbers.forEach { first ->
         numbers.forEach { second ->
-            if (targetSum == first + second){
+            if (targetSum == first + second) {
                 return Pair(first, second)
             }
         }
