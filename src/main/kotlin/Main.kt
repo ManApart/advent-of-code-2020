@@ -1,7 +1,9 @@
 import java.io.File
 
 fun main() {
-    val input = File("./input/d1p1.txt").readLines().map { it.toInt() }
+    println(findAndMultiply(2020, parseInput(1, 1)))
+}
 
-    println(findAndMultiply(2020, input))
+private fun parseInput(day: Int, problem: Int): List<Int> {
+    return File("./input/d${day}p$problem.txt").readLines().map { it.toInt() }
 }
