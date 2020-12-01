@@ -4,8 +4,9 @@ import kotlin.test.assertEquals
 class SumMultiplierTest {
 
     @Test
-    fun helloWorld() {
-        assertEquals(4, 2+2)
+    fun findSimpleSum() {
+        val actual = findSumMultiplier(2, listOf(1,1))
+        assertEquals(Pair(1,1), actual)
     }
 
 
