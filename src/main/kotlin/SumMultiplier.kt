@@ -1,33 +1,30 @@
-fun findAndMultiply(targetSum: Int, numbers: List<Int>): Int {
-    val matches = findSumMultiplier(targetSum, numbers)
+fun findAndMultiply(targetSum: Int, numberToMatch: Int, numbers: List<Int>): Int {
+    val matches = findSumMultiplier(targetSum, numberToMatch, numbers)
+    if (matches.isEmpty()) {
+        throw Exception("Could not find matches!")
+    }
     return matches.reduce { acc: Int, i: Int -> i * acc }
 }
 
-fun findAndMultiply3(targetSum: Int, numbers: List<Int>): Int {
-    val matches = findSumMultiplier3(targetSum, numbers)
-    return matches.reduce { acc: Int, i: Int -> i * acc }
-}
-
-fun findSumMultiplier(targetSum: Int, numbers: List<Int>): List<Int> {
+fun findSumMultiplier(targetSum: Int, numberToMatch: Int, numbers: List<Int>): List<Int> {
     numbers.forEach { first ->
-        numbers.forEach { second ->
-            if (targetSum == first + second) {
-                return listOf(first, second)
-            }
+        val possible = findSumMultiplierRecursive(targetSum, numberToMatch - 1, listOf(first), numbers)
+        if (possible.isNotEmpty()){
+            return possible
         }
     }
     return listOf()
 }
 
-fun findSumMultiplier3(targetSum: Int, numbers: List<Int>): List<Int> {
-    numbers.forEach { first ->
-        numbers.forEach { second ->
-            numbers.forEach { third ->
-                if (targetSum == first + second + third) {
-                    return listOf(first, second, third)
-                }
-            }
+private fun findSumMultiplierRecursive(targetSum: Int, depth: Int, matches: List<Int>, numbers: List<Int>): List<Int> {
+    if (depth == 0) {
+        if (targetSum == matches.sum()) {
+            return matches
         }
+    } else {
+        return numbers.map {
+            findSumMultiplierRecursive(targetSum, depth - 1, matches + listOf(it), numbers)
+        }.firstOrNull() { it.isNotEmpty() } ?: listOf()
     }
     return listOf()
 }
