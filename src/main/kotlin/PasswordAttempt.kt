@@ -5,6 +5,10 @@ data class PasswordAttempt(val letter: Char, val min: Int, val max: Int, val phr
     }
 
     fun isValidByPosition(): Boolean {
+        if (min > phrase.length || max > phrase.length){
+            return false
+        }
+
         val minMatch = phrase[min-1] == letter
         val maxMatch = phrase[max-1] == letter
 

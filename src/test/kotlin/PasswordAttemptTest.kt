@@ -62,4 +62,17 @@ class PasswordAttemptTest {
         assertFalse(pw.isValidByPosition())
     }
 
+    @Test
+    fun invalidBecauseMinOutOfRange() {
+        val pw = PasswordAttempt('a', 10, 11, "bb")
+
+        assertFalse(pw.isValidByPosition())
+    }
+
+    @Test
+    fun invalidBecauseMaxOutOfRange() {
+        val pw = PasswordAttempt('a', 1, 3, "bb")
+
+        assertFalse(pw.isValidByPosition())
+    }
 }
