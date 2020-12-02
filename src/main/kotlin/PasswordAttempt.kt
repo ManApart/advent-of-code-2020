@@ -1,6 +1,7 @@
 data class PasswordAttempt(val letter: Char, val minCount: Int, val maxCount: Int, val phrase: String) {
     fun isValid(): Boolean {
-        return false
+        val count = phrase.count { it == letter }
+        return count in minCount..maxCount
     }
 }
 
