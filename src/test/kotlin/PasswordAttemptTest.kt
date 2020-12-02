@@ -48,4 +48,18 @@ class PasswordAttemptTest {
         assertTrue(pw.isValidByPosition())
     }
 
+    @Test
+    fun invalidBecauseBothPositionsMatch() {
+        val pw = PasswordAttempt('a', 1, 3, "aaaa")
+
+        assertFalse(pw.isValidByPosition())
+    }
+
+    @Test
+    fun invalidBecauseNeitherPositionMatches() {
+        val pw = PasswordAttempt('a', 1, 3, "bbb")
+
+        assertFalse(pw.isValidByPosition())
+    }
+
 }
