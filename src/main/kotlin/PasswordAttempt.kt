@@ -1,11 +1,11 @@
-data class PasswordAttempt(val letter: Char, val minCount: Int, val maxCount: Int, val phrase: String) {
+data class PasswordAttempt(val letter: Char, val min: Int, val max: Int, val phrase: String) {
     fun isValidByCount(): Boolean {
         val count = phrase.count { it == letter }
-        return count in minCount..maxCount
+        return count in min..max
     }
 
     fun isValidByPosition(): Boolean {
-        return phrase[minCount-1] == letter
+        return phrase[min-1] == letter || phrase[max-1] == letter
     }
 }
 
