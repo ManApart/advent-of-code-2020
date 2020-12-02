@@ -3,7 +3,7 @@ import java.io.File
 fun main() {
 //    println(findAndMultiply(2020, 2, parseInputToNumbers(1, 1)))
 //    println(findAndMultiply(2020, 3, parseInputToNumbers(1, 1)))
-    println(countValidPasswords(parseInputToStrings(2, 1)))
+    println(countValidPasswordsByLetterCount(parseInputToStrings(2, 1)))
 }
 
 private fun parseInputToNumbers(day: Int, problem: Int): List<Int> {

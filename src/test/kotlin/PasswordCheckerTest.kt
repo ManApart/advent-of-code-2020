@@ -11,7 +11,7 @@ class PasswordCheckerTest {
             2-9 c: ccccccccc
         """.trimIndent().split("\n")
 
-        val validPasswords = countValidPasswords(input)
+        val validPasswords = countValidPasswordsByLetterCount(input)
         assertEquals(2, validPasswords)
     }
 }

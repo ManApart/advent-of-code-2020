@@ -14,24 +14,24 @@ class PasswordAttemptTest {
     }
 
     @Test
-    fun isValid() {
+    fun isValidByCount() {
         val pw = PasswordAttempt('a', 1, 3, "abcde")
 
-        assertTrue(pw.isValid())
+        assertTrue(pw.isValidByCount())
     }
 
     @Test
-    fun isInvalid() {
+    fun isInvalidByCount() {
         val pw = PasswordAttempt('b', 1, 3, "cdefg")
 
-        assertFalse(pw.isValid())
+        assertFalse(pw.isValidByCount())
     }
 
     @Test
-    fun isInvalidOverMax() {
+    fun isInvalidByCountOverMax() {
         val pw = PasswordAttempt('b', 1, 2, "bbbb")
 
-        assertFalse(pw.isValid())
+        assertFalse(pw.isValidByCount())
     }
 
 }
