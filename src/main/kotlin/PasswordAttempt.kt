@@ -3,6 +3,10 @@ data class PasswordAttempt(val letter: Char, val minCount: Int, val maxCount: In
         val count = phrase.count { it == letter }
         return count in minCount..maxCount
     }
+
+    fun isValidByPosition(): Boolean {
+        return phrase[minCount-1] == letter
+    }
 }
 
 fun String.toPasswordAttempt(): PasswordAttempt {

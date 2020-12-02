@@ -34,4 +34,11 @@ class PasswordAttemptTest {
         assertFalse(pw.isValidByCount())
     }
 
+    @Test
+    fun isValidByPosition() {
+        val pw = PasswordAttempt('a', 1, 3, "abcde")
+
+        assertTrue(pw.isValidByPosition())
+    }
+
 }
