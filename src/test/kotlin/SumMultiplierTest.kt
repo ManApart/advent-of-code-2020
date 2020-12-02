@@ -22,6 +22,18 @@ class SumMultiplierTest {
     }
 
     @Test
+    fun symmetricEdgeCase() {
+        val actual = findSumMultiplier(10, 2, listOf(5, 6, 4))
+        assertEquals(listOf(6, 4), actual)
+    }
+
+    @Test
+    fun symmetricEdgeCaseActualDuplicateNumbers() {
+        val actual = findSumMultiplier(10, 2, listOf(5, 5, 4))
+        assertEquals(listOf(5, 5), actual)
+    }
+
+    @Test
     fun findSumAndMultiply() {
         val numbers = listOf(1721, 979, 366, 299, 675, 1456)
         val actual = findAndMultiply(2020, 2, numbers)

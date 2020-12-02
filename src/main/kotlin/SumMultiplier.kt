@@ -22,7 +22,8 @@ private fun findSumMultiplierRecursive(targetSum: Int, depth: Int, matches: List
             return matches
         }
     } else {
-        return numbers.map {
+        //The sublist subtracts out the numbers we've already added to matches, so that we don't use the same number twice
+        return numbers.subList(matches.size, numbers.size).map {
             findSumMultiplierRecursive(targetSum, depth - 1, matches + listOf(it), numbers)
         }.firstOrNull() { it.isNotEmpty() } ?: listOf()
     }
