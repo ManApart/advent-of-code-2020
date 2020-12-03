@@ -5,7 +5,8 @@ fun main() {
 //    println(findAndMultiply(2020, 3, parseInputToNumbers(1, 1)))
 //    println(countValidPasswordsByLetterCount(parseInputToStrings(2, 1)))
 //    println(countValidPasswordsByLetterPosition(parseInputToStrings(2, 1)))
-    println(countTrees(3, -1, Grid(parseInputToStrings(3, 1))))
+//    println(countTrees(3, -1, Grid(parseInputToStrings(3, 1))))
+    println(countTreesForMultiplePaths(day3Paths, Grid(parseInputToStrings(3, 1))))
 }
 
 private fun parseInputToNumbers(day: Int, problem: Int): List<Int> {

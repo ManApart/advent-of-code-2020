@@ -19,7 +19,7 @@ class Grid(lines: List<String>) {
     }
 
     fun isTree(x: Int, y: Int): Boolean {
-        val wrappedX = if (x > width){
+        val wrappedX = if (x >= width){
             x % width
         } else {
             x

@@ -49,6 +49,19 @@ class GridTest {
     }
 
     @Test
+    fun gridWrapsEdgeCase() {
+        val grid = Grid(listOf(
+            "#.#..##.#.##......#..#.#....#.#"
+        ))
+
+        assertTrue(grid.isTree(0,0))
+        assertFalse(grid.isTree(29,0))
+        assertTrue(grid.isTree(30,0))
+        assertTrue(grid.isTree(31,0))
+        assertFalse(grid.isTree(32,0))
+    }
+
+    @Test
     fun gridDimensions() {
         val grid = Grid(
             listOf(
