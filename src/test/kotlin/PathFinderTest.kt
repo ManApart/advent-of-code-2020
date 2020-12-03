@@ -25,8 +25,18 @@ class PathFinderTest {
     }
 
     @Test
-    fun countTreeThatIsStartedOn() {
+    fun countTreesMultiplePaths() {
+        val grid = Grid(input)
+        val steps = listOf(
+            Pair(1, -1),
+            Pair(3, -1),
+            Pair(5, -1),
+            Pair(7, -1),
+            Pair(1, -2),
+        )
+        val result = countTreesForMultiplePaths(steps, grid)
 
+        assertEquals(336, result)
     }
 
 }
