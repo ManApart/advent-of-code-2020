@@ -6,17 +6,31 @@ class GridTest {
 
     @Test
     fun parsingAndCoordinateSystem() {
-        val input = listOf(
+        val grid = Grid(listOf(
             "..",
             ".#"
-        )
-
-        val grid = Grid(input)
+        ))
 
         assertFalse(grid.isTree(0,1))
         assertFalse(grid.isTree(1,1))
         assertFalse(grid.isTree(0,0))
         assertTrue(grid.isTree(1,0))
+    }
 
+    @Test
+    fun gridWraps() {
+        val grid = Grid(listOf(
+            "..",
+            ".#"
+        ))
+
+        assertFalse(grid.isTree(0,0))
+        assertTrue(grid.isTree(1,0))
+
+        assertFalse(grid.isTree(2,0))
+        assertTrue(grid.isTree(3,0))
+
+        assertFalse(grid.isTree(4,0))
+        assertTrue(grid.isTree(5,0))
     }
 }

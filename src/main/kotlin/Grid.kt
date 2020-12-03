@@ -1,5 +1,6 @@
 class Grid(lines: List<String>) {
     private val map = buildMap(lines)
+    private val width = (map.keys.maxOrNull() ?: 0) + 1
 
     private fun buildMap(lines: List<String>): Map<Int, Map<Int, Boolean>> {
         val map = mutableMapOf<Int, MutableMap<Int, Boolean>>()
@@ -17,6 +18,11 @@ class Grid(lines: List<String>) {
     }
 
     fun isTree(x: Int, y: Int): Boolean {
-        return map[x]?.get(y) ?: false
+        val wrappedX = if (x > width){
+            x % width
+        } else {
+            x
+        }
+        return map[wrappedX]?.get(y) ?: false
     }
 }
