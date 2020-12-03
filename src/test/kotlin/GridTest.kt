@@ -1,5 +1,6 @@
 import org.testng.Assert.assertFalse
 import org.testng.annotations.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class GridTest {
@@ -9,6 +10,19 @@ class GridTest {
         val grid = Grid(listOf(
             "..",
             ".#"
+        ))
+
+        assertFalse(grid.isTree(0,1))
+        assertFalse(grid.isTree(1,1))
+        assertFalse(grid.isTree(0,0))
+        assertTrue(grid.isTree(1,0))
+    }
+
+    @Test
+    fun parsingTrims() {
+        val grid = Grid(listOf(
+            ".. ",
+            " .#"
         ))
 
         assertFalse(grid.isTree(0,1))
@@ -33,4 +47,19 @@ class GridTest {
         assertFalse(grid.isTree(4,0))
         assertTrue(grid.isTree(5,0))
     }
+
+    @Test
+    fun gridDimensions() {
+        val grid = Grid(
+            listOf(
+                "..",
+                ".#",
+                ".#"
+            )
+        )
+        assertEquals(2, grid.width)
+        assertEquals(3, grid.height)
+
+    }
+
 }
