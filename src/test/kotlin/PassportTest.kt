@@ -1,4 +1,5 @@
 import org.testng.Assert.assertFalse
+import org.testng.Assert.assertTrue
 import org.testng.annotations.Test
 import kotlin.test.assertEquals
 
@@ -23,6 +24,15 @@ class PassportTest {
         val passport = Passport(input)
 
         assertFalse(passport.isValid())
+    }
+
+    @Test
+    fun isValidAllEight() {
+        val input = "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:183cm".split(" ")
+
+        val passport = Passport(input)
+
+        assertTrue(passport.isValid())
     }
 
 

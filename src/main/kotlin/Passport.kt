@@ -5,6 +5,6 @@ class Passport(values: List<String>) {
     }
 
     fun isValid(): Boolean {
-        return false
+        return attributes.keys.size == 8
     }
 }
