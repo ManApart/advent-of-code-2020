@@ -73,6 +73,26 @@ class PassportTest {
         assertEquals(false, Passport(listOf("eyr:2031")).hasValidExpirationYear())
     }
 
+    @Test
+    fun heightValidation() {
+        //invalid format
+        assertEquals(false, Passport(listOf("hgt:")).hasValidHeight())
+        assertEquals(false, Passport(listOf("hgt:abc")).hasValidHeight())
+        assertEquals(false, Passport(listOf("hgt:123")).hasValidHeight())
+
+        //cms
+        assertEquals(false, Passport(listOf("hgt:149cm")).hasValidHeight())
+        assertEquals(true, Passport(listOf("hgt:150cm")).hasValidHeight())
+        assertEquals(true, Passport(listOf("hgt:193cm")).hasValidHeight())
+        assertEquals(false, Passport(listOf("hgt:194cm")).hasValidHeight())
+
+        //in
+        assertEquals(false, Passport(listOf("hgt:58in")).hasValidHeight())
+        assertEquals(true, Passport(listOf("hgt:59in")).hasValidHeight())
+        assertEquals(true, Passport(listOf("hgt:76in")).hasValidHeight())
+        assertEquals(false, Passport(listOf("hgt:77in")).hasValidHeight())
+    }
+
 
 
 }

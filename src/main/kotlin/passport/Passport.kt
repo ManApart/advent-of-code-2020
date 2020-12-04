@@ -26,4 +26,24 @@ class Passport(values: List<String>) {
         val year = attributes["eyr"]?.toIntOrNull() ?: 0
         return year in 2020..2030
     }
+
+    fun hasValidHeight(): Boolean {
+        val heightString = attributes["hgt"]
+        if  (heightString == null || heightString.length < 3){
+            return false
+        }
+        val cm = heightString.endsWith("cm")
+        val inches = heightString.endsWith("in")
+        val height = heightString.substring(0, heightString.length-2).toIntOrNull() ?: 0
+
+        if (cm){
+            return height in 150..193
+        }
+
+        if (inches){
+            return height in 59..76
+        }
+
+        return false
+    }
 }
