@@ -1,3 +1,3 @@
 fun parsePassports(lines: List<String>): List<List<String>> {
-    return lines.map { it.split(" ") }
+    return listOf(lines.joinToString("\n ").split(" "))
 }
