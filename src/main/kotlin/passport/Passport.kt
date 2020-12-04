@@ -21,4 +21,9 @@ class Passport(values: List<String>) {
         val year = attributes["iyr"]?.toIntOrNull() ?: 0
         return year in 2010..2020
     }
+
+    fun hasValidExpirationYear(): Boolean {
+        val year = attributes["eyr"]?.toIntOrNull() ?: 0
+        return year in 2020..2030
+    }
 }

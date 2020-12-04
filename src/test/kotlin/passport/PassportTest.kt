@@ -64,6 +64,15 @@ class PassportTest {
         assertEquals(false, Passport(listOf("iyr:2021")).hasValidIssueYear())
     }
 
+    @Test
+    fun expirationYearValidation() {
+        assertEquals(false, Passport(listOf("eyr:abc")).hasValidExpirationYear())
+        assertEquals(false, Passport(listOf("eyr:2019")).hasValidExpirationYear())
+        assertEquals(true, Passport(listOf("eyr:2020")).hasValidExpirationYear())
+        assertEquals(true, Passport(listOf("eyr:2030")).hasValidExpirationYear())
+        assertEquals(false, Passport(listOf("eyr:2031")).hasValidExpirationYear())
+    }
+
 
 
 }
