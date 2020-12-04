@@ -138,5 +138,25 @@ class PassportTest {
         assertTrue(passport.isValid())
     }
 
+    @Test
+    fun isNotValid() {
+        listOf(
+            "ecl:wrong pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:183cm",
+            "ecl:gry pid:wrong eyr:2020 hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:183cm",
+            "ecl:gry pid:860033327 eyr:wrong hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:183cm",
+            "ecl:gry pid:860033327 eyr:2020 hcl:wrong byr:1937 iyr:2017 cid:147 hgt:183cm",
+            "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:wrong iyr:2017 cid:147 hgt:183cm",
+            "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:wrong cid:147 hgt:183cm",
+            "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:wrong",
+            "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:2017 cid:147",
+        ).forEach { input ->
+            assertNotValid(input)
+        }
+    }
+
+    private fun assertNotValid(input: String) {
+        val passport = Passport(input.split(" "))
+        assertFalse(passport.isValid())
+    }
 
 }

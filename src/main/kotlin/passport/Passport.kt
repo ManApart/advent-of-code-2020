@@ -11,7 +11,14 @@ class Passport(values: List<String>) {
     }
 
     fun isValid(): Boolean {
-        return true
+        return hasAllKeys() &&
+                hasValidBirthYear() &&
+                hasValidIssueYear() &&
+                hasValidExpirationYear() &&
+                hasValidHeight() &&
+                hasValidEyeColor() &&
+                hasValidPassportId() &&
+                hasValidHairColor()
     }
 
     fun hasAllKeys(): Boolean {
