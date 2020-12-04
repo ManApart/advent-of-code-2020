@@ -1,5 +1,5 @@
 import passport.Passport
 
 fun countValidPassports(lines: List<String>): Int {
-    return parsePassports(lines).map { Passport(it) }.count { it.isValid() }
+    return parsePassports(lines).map { Passport(it) }.count { it.hasAllKeys() }
 }

@@ -25,7 +25,7 @@ class PassportTest {
 
         val passport = Passport(input)
 
-        assertFalse(passport.isValid())
+        assertFalse(passport.hasAllKeys())
     }
 
     @Test
@@ -34,7 +34,7 @@ class PassportTest {
 
         val passport = Passport(input)
 
-        assertTrue(passport.isValid())
+        assertTrue(passport.hasAllKeys())
     }
 
     @Test
@@ -43,7 +43,16 @@ class PassportTest {
 
         val passport = Passport(input)
 
-        assertTrue(passport.isValid())
+        assertTrue(passport.hasAllKeys())
+    }
+
+    @Test
+    fun birthYearValidation() {
+        assertEquals(false, Passport(listOf("byr:abc")).hasValidBirthYear())
+        assertEquals(false, Passport(listOf("byr:1919")).hasValidBirthYear())
+        assertEquals(true, Passport(listOf("byr:1920")).hasValidBirthYear())
+        assertEquals(true, Passport(listOf("byr:2002")).hasValidBirthYear())
+        assertEquals(false, Passport(listOf("byr:2003")).hasValidBirthYear())
     }
 
 

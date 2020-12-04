@@ -8,7 +8,12 @@ class Passport(values: List<String>) {
         parts.first() to parts.last()
     }
 
-    fun isValid(): Boolean {
+    fun hasAllKeys(): Boolean {
         return requiredFields.all { attributes.keys.contains(it) }
+    }
+
+    fun hasValidBirthYear() : Boolean{
+        val year = attributes["byr"]?.toIntOrNull() ?: 0
+        return year in 1920..2002
     }
 }
