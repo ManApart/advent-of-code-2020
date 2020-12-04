@@ -42,4 +42,23 @@ class PassportParserTest {
         assertEquals("iyr:2013", result.first())
         assertEquals("byr:1929", result.last())
     }
+
+    @Test
+    fun parseManyMultiLine() {
+        val input = """
+                iyr:2013
+                ecl:amb
+                cid:350 
+                eyr:2023
+                pid:028048884
+                hcl:#cfa07d 
+                byr:1929
+        """.trimIndent().split("\n")
+
+        val result = parsePassports(input).first()
+
+        assertEquals(7, result.size)
+        assertEquals("iyr:2013", result.first())
+        assertEquals("byr:1929", result.last())
+    }
 }
