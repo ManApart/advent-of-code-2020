@@ -35,6 +35,15 @@ class PassportTest {
         assertTrue(passport.isValid())
     }
 
+    @Test
+    fun isValidAllMissingOptional() {
+        val input = "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:2017 hgt:183cm".split(" ")
+
+        val passport = Passport(input)
+
+        assertTrue(passport.isValid())
+    }
+
 
 
 }

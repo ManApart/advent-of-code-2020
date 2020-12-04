@@ -1,3 +1,5 @@
+private val requiredFields = listOf("ecl", "pid", "eyr", "hcl", "byr", "iyr", "hgt")
+
 class Passport(values: List<String>) {
     val attributes: Map<String, String> = values.associate {
         val parts = it.split(":")
@@ -5,6 +7,6 @@ class Passport(values: List<String>) {
     }
 
     fun isValid(): Boolean {
-        return attributes.keys.size == 8
+        return requiredFields.all { attributes.keys.contains(it) }
     }
 }
