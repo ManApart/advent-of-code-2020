@@ -117,5 +117,17 @@ class PassportTest {
         assertEquals(true, Passport(listOf("pid:123456789")).hasValidPassportId())
     }
 
+    @Test
+    fun hairColorValidation() {
+        assertEquals(false, Passport(listOf("hcl:doge")).hasValidHairColor())
+        assertEquals(false, Passport(listOf("hcl:")).hasValidHairColor())
+        assertEquals(false, Passport(listOf("hcl:#abcde")).hasValidHairColor())
+        assertEquals(false, Passport(listOf("hcl:abcdef")).hasValidHairColor())
+        assertEquals(false, Passport(listOf("hcl:abcdefg")).hasValidHairColor())
+
+        assertEquals(true, Passport(listOf("hcl:#abcdef")).hasValidHairColor())
+        assertEquals(true, Passport(listOf("hcl:#123456")).hasValidHairColor())
+    }
+
 
 }

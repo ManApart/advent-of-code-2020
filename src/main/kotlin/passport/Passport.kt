@@ -59,4 +59,15 @@ class Passport(values: List<String>) {
         return idString.length == 9 && idString.toIntOrNull() != null
     }
 
+    fun hasValidHairColor(): Boolean {
+        val hairColor = attributes["hcl"] ?: ""
+        return hairColor.length == 7 &&
+                hairColor.startsWith("#") &&
+                hairColor.substring(1, 7).isAlphaNumeric()
+    }
+
+}
+
+private fun String.isAlphaNumeric() : Boolean {
+    return this.length == this.filter { it in 'A'..'Z' || it in 'a'..'z' || it in '0'..'9' }.length
 }
