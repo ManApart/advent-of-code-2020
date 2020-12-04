@@ -20,7 +20,7 @@ class PassportTest {
     }
 
     @Test
-    fun isNotValid() {
+    fun isMissingKeys() {
         val input = "ecl:gry eyr:2020 hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:183cm".split(" ")
 
         val passport = Passport(input)
@@ -29,7 +29,7 @@ class PassportTest {
     }
 
     @Test
-    fun isValidAllEight() {
+    fun hasKeysAllEight() {
         val input = "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:183cm".split(" ")
 
         val passport = Passport(input)
@@ -38,7 +38,7 @@ class PassportTest {
     }
 
     @Test
-    fun isValidAllMissingOptional() {
+    fun hasKeysMissingOptional() {
         val input = "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:2017 hgt:183cm".split(" ")
 
         val passport = Passport(input)
@@ -127,6 +127,15 @@ class PassportTest {
 
         assertEquals(true, Passport(listOf("hcl:#abcdef")).hasValidHairColor())
         assertEquals(true, Passport(listOf("hcl:#123456")).hasValidHairColor())
+    }
+
+    @Test
+    fun isValid() {
+        val input = "ecl:gry pid:860033327 eyr:2020 hcl:#fffffd byr:1937 iyr:2017 cid:147 hgt:183cm".split(" ")
+
+        val passport = Passport(input)
+
+        assertTrue(passport.isValid())
     }
 
 

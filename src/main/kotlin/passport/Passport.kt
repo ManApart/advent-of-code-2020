@@ -10,6 +10,10 @@ class Passport(values: List<String>) {
         parts.first() to parts.last()
     }
 
+    fun isValid(): Boolean {
+        return true
+    }
+
     fun hasAllKeys(): Boolean {
         return requiredFields.all { attributes.keys.contains(it) }
     }

@@ -7,7 +7,7 @@ fun main() {
 //    println(countValidPasswordsByLetterPosition(parseInputToStrings(2, 1)))
 //    println(sledding.countTrees(3, -1, sledding.Grid(parseInputToStrings(3, 1))))
 //    println(sledding.countTreesForMultiplePaths(sledding.getDay3Paths, sledding.Grid(parseInputToStrings(3, 1))))
-    println(countValidPassports(parseInputToStrings(4, 1)))
+    println(countPassportsWithAllKeys(parseInputToStrings(4, 1)))
 }
 
 private fun parseInputToNumbers(day: Int, problem: Int): List<Int> {

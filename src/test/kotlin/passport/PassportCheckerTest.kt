@@ -1,6 +1,6 @@
 package passport
 
-import countValidPassports
+import countPassportsWithAllKeys
 import org.testng.annotations.Test
 import kotlin.test.assertEquals
 
@@ -23,7 +23,7 @@ class PassportCheckerTest {
         iyr:2011 ecl:brn hgt:59in
     """.trimIndent().split("\n")
 
-        val validCount = countValidPassports(input)
+        val validCount = countPassportsWithAllKeys(input)
 
         assertEquals(2, validCount)
     }
