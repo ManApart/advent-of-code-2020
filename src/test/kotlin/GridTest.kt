@@ -62,6 +62,27 @@ class GridTest {
     }
 
     @Test
+    fun gridWraps2() {
+        val grid = Grid(listOf(
+            "...",
+            ".#."
+        ))
+
+        assertFalse(grid.isTree(0,0))
+        assertTrue(grid.isTree(1,0))
+        assertFalse(grid.isTree(2,0))
+
+        assertFalse(grid.isTree(3,0))
+        assertTrue(grid.isTree(4,0))
+        assertFalse(grid.isTree(5,0))
+
+        assertFalse(grid.isTree(6,0))
+        assertTrue(grid.isTree(7,0))
+        assertFalse(grid.isTree(8,0))
+
+    }
+
+    @Test
     fun gridDimensions() {
         val grid = Grid(
             listOf(
