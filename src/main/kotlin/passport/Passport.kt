@@ -2,6 +2,8 @@ package passport
 
 private val requiredFields = listOf("ecl", "pid", "eyr", "hcl", "byr", "iyr", "hgt")
 
+private val validEyeColors = listOf("amb", "blu", "brn", "gry", "grn", "hzl", "oth")
+
 class Passport(values: List<String>) {
     val attributes: Map<String, String> = values.associate {
         val parts = it.split(":")
@@ -46,4 +48,10 @@ class Passport(values: List<String>) {
 
         return false
     }
+
+    fun hasValidEyeColor(): Boolean {
+        val color = attributes["ecl"]
+        return color in validEyeColors
+    }
+
 }

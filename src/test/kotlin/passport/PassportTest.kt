@@ -93,6 +93,19 @@ class PassportTest {
         assertEquals(false, Passport(listOf("hgt:77in")).hasValidHeight())
     }
 
+    @Test
+    fun eyeColorValidation() {
+        assertEquals(false, Passport(listOf("ecl:doge")).hasValidEyeColor())
+        assertEquals(false, Passport(listOf("ecl:")).hasValidEyeColor())
+
+        assertEquals(true, Passport(listOf("ecl:amb")).hasValidEyeColor())
+        assertEquals(true, Passport(listOf("ecl:blu")).hasValidEyeColor())
+        assertEquals(true, Passport(listOf("ecl:brn")).hasValidEyeColor())
+        assertEquals(true, Passport(listOf("ecl:gry")).hasValidEyeColor())
+        assertEquals(true, Passport(listOf("ecl:grn")).hasValidEyeColor())
+        assertEquals(true, Passport(listOf("ecl:hzl")).hasValidEyeColor())
+        assertEquals(true, Passport(listOf("ecl:oth")).hasValidEyeColor())
+    }
 
 
 }
