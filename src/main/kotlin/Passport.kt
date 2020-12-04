@@ -3,4 +3,8 @@ class Passport(values: List<String>) {
         val parts = it.split(":")
         parts.first() to parts.last()
     }
+
+    fun isValid(): Boolean {
+        return false
+    }
 }
