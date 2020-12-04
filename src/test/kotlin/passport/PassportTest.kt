@@ -55,6 +55,15 @@ class PassportTest {
         assertEquals(false, Passport(listOf("byr:2003")).hasValidBirthYear())
     }
 
+    @Test
+    fun issueYearValidation() {
+        assertEquals(false, Passport(listOf("iyr:abc")).hasValidIssueYear())
+        assertEquals(false, Passport(listOf("iyr:2009")).hasValidIssueYear())
+        assertEquals(true, Passport(listOf("iyr:2010")).hasValidIssueYear())
+        assertEquals(true, Passport(listOf("iyr:2020")).hasValidIssueYear())
+        assertEquals(false, Passport(listOf("iyr:2021")).hasValidIssueYear())
+    }
+
 
 
 }

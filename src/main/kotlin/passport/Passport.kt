@@ -12,8 +12,13 @@ class Passport(values: List<String>) {
         return requiredFields.all { attributes.keys.contains(it) }
     }
 
-    fun hasValidBirthYear() : Boolean{
+    fun hasValidBirthYear(): Boolean {
         val year = attributes["byr"]?.toIntOrNull() ?: 0
         return year in 1920..2002
+    }
+
+    fun hasValidIssueYear(): Boolean {
+        val year = attributes["iyr"]?.toIntOrNull() ?: 0
+        return year in 2010..2020
     }
 }
