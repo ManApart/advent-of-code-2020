@@ -5,8 +5,8 @@ fun main() {
 //    println(findAndMultiply(2020, 3, parseInputToNumbers(1, 1)))
 //    println(countValidPasswordsByLetterCount(parseInputToStrings(2, 1)))
 //    println(countValidPasswordsByLetterPosition(parseInputToStrings(2, 1)))
-//    println(countTrees(3, -1, Grid(parseInputToStrings(3, 1))))
-//    println(countTreesForMultiplePaths(day3Paths, Grid(parseInputToStrings(3, 1))))
+//    println(sledding.countTrees(3, -1, sledding.Grid(parseInputToStrings(3, 1))))
+//    println(sledding.countTreesForMultiplePaths(sledding.getDay3Paths, sledding.Grid(parseInputToStrings(3, 1))))
     println(countValidPassports(parseInputToStrings(4, 1)))
 }
 

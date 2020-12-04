@@ -1,3 +1,6 @@
+package passport
+
+import countValidPassports
 import org.testng.annotations.Test
 import kotlin.test.assertEquals
 

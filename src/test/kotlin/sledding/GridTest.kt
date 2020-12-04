@@ -1,5 +1,8 @@
+package sledding
+
 import org.testng.Assert.assertFalse
 import org.testng.annotations.Test
+import sledding.Grid
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 

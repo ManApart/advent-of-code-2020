@@ -1,3 +1,5 @@
+package passport
+
 private val requiredFields = listOf("ecl", "pid", "eyr", "hcl", "byr", "iyr", "hgt")
 
 class Passport(values: List<String>) {

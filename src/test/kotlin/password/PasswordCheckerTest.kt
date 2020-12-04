@@ -1,3 +1,7 @@
+package password
+
+import countValidPasswordsByLetterCount
+import countValidPasswordsByLetterPosition
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

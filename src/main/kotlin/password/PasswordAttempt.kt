@@ -1,3 +1,5 @@
+package password
+
 data class PasswordAttempt(val letter: Char, val min: Int, val max: Int, val phrase: String) {
     fun isValidByCount(): Boolean {
         val count = phrase.count { it == letter }

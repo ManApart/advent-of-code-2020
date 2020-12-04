@@ -1,3 +1,5 @@
+package passport
+
 import org.testng.Assert.assertFalse
 import org.testng.Assert.assertTrue
 import org.testng.annotations.Test

@@ -1,4 +1,7 @@
+package passport
+
 import org.testng.annotations.Test
+import parsePassports
 import kotlin.test.assertEquals
 
 class PassportParserTest {

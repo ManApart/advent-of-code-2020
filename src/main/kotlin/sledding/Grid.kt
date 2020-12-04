@@ -1,3 +1,5 @@
+package sledding
+
 class Grid(lines: List<String>) {
     private val map = buildMap(lines)
     val width = (map.keys.maxOrNull() ?: 0) + 1

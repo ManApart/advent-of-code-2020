@@ -1,3 +1,5 @@
+package sledding
+
 val day3Paths = listOf(
     Pair(1, -1),
     Pair(3, -1),
