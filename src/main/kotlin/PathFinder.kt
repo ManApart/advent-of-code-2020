@@ -6,13 +6,8 @@ val day3Paths = listOf(
     Pair(1, -2),
 )
 
-
 fun countTreesForMultiplePaths(steps: List<Pair<Int, Int>>, grid: Grid): Long {
-    val treeList = steps.map { countTrees(it.first, it.second, grid).toLong() }
-    println(treeList)
-    return treeList.reduce {
-            acc: Long, i: Long -> i * acc
-    }
+    return steps.map { countTrees(it.first, it.second, grid).toLong() }.reduce { acc: Long, i: Long -> i * acc }
 }
 
 fun countTrees(stepX: Int, stepY: Int, grid: Grid): Int {
