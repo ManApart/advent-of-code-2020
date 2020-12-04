@@ -54,4 +54,9 @@ class Passport(values: List<String>) {
         return color in validEyeColors
     }
 
+    fun hasValidPassportId(): Boolean {
+        val idString = attributes["pid"] ?: ""
+        return idString.length == 9 && idString.toIntOrNull() != null
+    }
+
 }

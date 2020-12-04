@@ -107,5 +107,15 @@ class PassportTest {
         assertEquals(true, Passport(listOf("ecl:oth")).hasValidEyeColor())
     }
 
+    @Test
+    fun passportIdValidation() {
+        assertEquals(false, Passport(listOf("pid:doge")).hasValidPassportId())
+        assertEquals(false, Passport(listOf("pid:123")).hasValidPassportId())
+        assertEquals(false, Passport(listOf("pid:abcdefghi")).hasValidPassportId())
+
+        assertEquals(true, Passport(listOf("pid:000000001")).hasValidPassportId())
+        assertEquals(true, Passport(listOf("pid:123456789")).hasValidPassportId())
+    }
+
 
 }
