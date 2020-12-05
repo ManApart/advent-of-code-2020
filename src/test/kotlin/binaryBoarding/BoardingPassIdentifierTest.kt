@@ -19,4 +19,14 @@ class BoardingPassIdentifierTest {
         assertEquals(820, identifySeatID(input[2]))
     }
 
+    @Test
+    fun findLargestSeatId() {
+        val input = parseBoardingPasses(listOf(
+            "BFFFBBFRRR",
+            "FFFBBBFRRR",
+            "BBFFBBFRLL"
+        ))
+        assertEquals(820, findLargestSeatID(input))
+    }
+
 }
