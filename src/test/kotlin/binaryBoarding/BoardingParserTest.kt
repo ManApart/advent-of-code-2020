@@ -11,8 +11,8 @@ class BoardingParserTest {
         val results = parseBoardingPasses(input)
 
         assertEquals(1, results.size)
-        assertEquals(10, results.first().size)
-        assertEquals(listOf(listOf(false, true, false, true, true, false, false, true, false, true)), results)
+        assertEquals(10, results.first().length)
+        assertEquals(listOf("0101100101"), results)
     }
 
     @Test
@@ -26,15 +26,13 @@ class BoardingParserTest {
         val results = parseBoardingPasses(input)
 
         assertEquals(3, results.size)
-        assertEquals(10, results[0].size)
-        assertEquals(10, results[1].size)
-        assertEquals(10, results[2].size)
-        assertEquals(true, results[0].first())
-        assertEquals(true, results[0].last())
-        assertEquals(false, results[1].first())
-        assertEquals(true, results[1].last())
-        assertEquals(true, results[2].first())
-        assertEquals(false, results[2].last())
+        assertEquals(10, results[0].length)
+        assertEquals(10, results[1].length)
+        assertEquals(10, results[2].length)
+        assertEquals("1000110111", results[0])
+        assertEquals("0001110111", results[1])
+        assertEquals("1100110100", results[2])
+
     }
 
 
