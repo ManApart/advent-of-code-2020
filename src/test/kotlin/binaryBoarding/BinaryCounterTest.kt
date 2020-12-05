@@ -1,3 +1,6 @@
+package binaryBoarding
+
+import findNumber
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
