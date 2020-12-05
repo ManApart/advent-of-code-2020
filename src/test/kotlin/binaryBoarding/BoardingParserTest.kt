@@ -3,7 +3,7 @@ package binaryBoarding
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class BoardingParser {
+class BoardingParserTest {
 
     @Test
     fun parseSingleLine() {
@@ -12,12 +12,12 @@ class BoardingParser {
 
         assertEquals(1, results.size)
         assertEquals(10, results.first().size)
-        assertEquals(listOf(listOf(false,true,false,true,true,false,false,true,false,true)), results)
+        assertEquals(listOf(listOf(false, true, false, true, true, false, false, true, false, true)), results)
     }
 
     @Test
     fun parseMultipleLines() {
-        val input ="""
+        val input = """
             BFFFBBFRRR
             FFFBBBFRRR
             BBFFBBFRLL
@@ -36,7 +36,6 @@ class BoardingParser {
         assertEquals(true, results[2].first())
         assertEquals(false, results[2].last())
     }
-
 
 
 }
