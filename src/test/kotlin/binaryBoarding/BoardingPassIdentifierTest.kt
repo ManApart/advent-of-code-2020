@@ -19,7 +19,6 @@ class BoardingPassIdentifierTest {
         assertEquals(44, result)
     }
 
-
     @Test
     fun identifySeats() {
         //first seven == row, last 3 == column
@@ -42,6 +41,24 @@ class BoardingPassIdentifierTest {
             "BBFFBBFRLL"
         ))
         assertEquals(820, findLargestSeatID(input))
+    }
+
+    @Test
+    fun findGapIDSimple() {
+        val input = listOf(1,3)
+        assertEquals(2, input.findGapID())
+    }
+
+    @Test
+    fun findGapIDMoreNumbers() {
+        val input = listOf(1,2,3,4,6,7,8,9,10)
+        assertEquals(5, input.findGapID())
+    }
+
+    @Test
+    fun findGapIDOutOfOrder() {
+        val input = listOf(5,1,4,2)
+        assertEquals(3, input.findGapID())
     }
 
 }
