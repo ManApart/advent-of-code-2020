@@ -1,10 +1,10 @@
 package binaryBoarding
 
-//fun findGapId(lines: List<String>) : Int {
-//    return parseBoardingPasses(lines).map { identifySeatID(it) }.findGapID()
-//}
+fun findGapId(lines: List<String>) : Int {
+    return parseBoardingPasses(lines).map { identifySeatID(it) }.findGapInList()
+}
 
-fun List<Int>.findGapID(): Int {
+fun List<Int>.findGapInList(): Int {
     var last = this.first()
 
     this.sorted().forEach {

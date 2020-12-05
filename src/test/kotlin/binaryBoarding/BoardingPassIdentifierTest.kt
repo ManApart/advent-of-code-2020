@@ -44,21 +44,31 @@ class BoardingPassIdentifierTest {
     }
 
     @Test
-    fun findGapIDSimple() {
+    fun findGapInListSimple() {
         val input = listOf(1,3)
-        assertEquals(2, input.findGapID())
+        assertEquals(2, input.findGapInList())
     }
 
     @Test
-    fun findGapIDMoreNumbers() {
+    fun findGapInListMoreNumbers() {
         val input = listOf(1,2,3,4,6,7,8,9,10)
-        assertEquals(5, input.findGapID())
+        assertEquals(5, input.findGapInList())
     }
 
     @Test
-    fun findGapIDOutOfOrder() {
+    fun findGapInListOutOfOrder() {
         val input = listOf(5,1,4,2)
-        assertEquals(3, input.findGapID())
+        assertEquals(3, input.findGapInList())
+    }
+
+    @Test
+    fun findGapID() {
+        val input = listOf(
+            "FFFFFFFLLL",
+            "FFFFFFFLLR",
+            "FFFFFFFLRR",
+        )
+        assertEquals(2, findGapId(input))
     }
 
 }
