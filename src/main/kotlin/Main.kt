@@ -1,3 +1,4 @@
+import binaryBoarding.findGapId
 import binaryBoarding.findLargestSeatID
 import binaryBoarding.parseBoardingPasses
 import java.io.File
@@ -11,7 +12,8 @@ fun main() {
 //    println(sledding.countTreesForMultiplePaths(sledding.getDay3Paths, sledding.Grid(parseInputToStrings(3, 1))))
 //    println(countPassportsWithAllKeys(parseInputToStrings(4, 1)))
 //    println(countValidPassports(parseInputToStrings(4, 1)))
-    println(findLargestSeatID(parseBoardingPasses(parseInputToStrings(5, 1))))
+//    println(findLargestSeatID(parseBoardingPasses(parseInputToStrings(5, 1))))
+    println(findGapId(parseInputToStrings(5, 1)))
 }
 
 private fun parseInputToNumbers(day: Int, problem: Int): List<Int> {
