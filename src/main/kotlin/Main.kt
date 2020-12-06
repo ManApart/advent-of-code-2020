@@ -1,6 +1,7 @@
 import binaryBoarding.findGapId
 import binaryBoarding.findLargestSeatID
 import binaryBoarding.parseBoardingPasses
+import customs.countAllAnswersForCustoms
 import customs.countAnswersForCustoms
 import java.io.File
 
@@ -15,7 +16,8 @@ fun main() {
 //    println(countValidPassports(parseInputToStrings(4, 1)))
 //    println(findLargestSeatID(parseBoardingPasses(parseInputToStrings(5, 1))))
 //    println(findGapId(parseInputToStrings(5, 1)))
-    println(countAnswersForCustoms(parseInputToStrings(6, 1)))
+//    println(countAnswersForCustoms(parseInputToStrings(6, 1)))
+    println(countAllAnswersForCustoms(parseInputToStrings(6, 1)))
 }
 
 private fun parseInputToNumbers(day: Int, problem: Int): List<Int> {
