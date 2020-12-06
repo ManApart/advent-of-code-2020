@@ -93,4 +93,28 @@ class CustomsTest {
         assertEquals(1, result)
     }
 
+    @Test
+    fun countAllAnswersAcrossMultipleGroups() {
+        val input = """
+            abc
+
+            a
+            b
+            c
+
+            ab
+            ac
+
+            a
+            a
+            a
+            a
+
+            b
+        """.trimIndent().split("\n")
+
+        val result = countAllAnswersForCustoms(input)
+        assertEquals(6, result)
+    }
+
 }

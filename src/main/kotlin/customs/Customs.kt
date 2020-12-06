@@ -1,11 +1,11 @@
 package customs
 
 fun countAnswersForCustoms(lines: List<String>): Int {
-    return countAnswersForAllGroups(parseCustoms(lines))
+    return parseCustoms(lines).sumBy { countAnswersPerGroup(it) }
 }
 
-fun countAnswersForAllGroups(groups: List<List<String>>): Int {
-    return groups.sumBy { countAnswersPerGroup(it) }
+fun countAllAnswersForCustoms(lines: List<String>): Int {
+    return parseCustoms(lines).sumBy { countAnswersThatAllAnsweredInGroup(it) }
 }
 
 fun countAnswersPerGroup(group: List<String>): Int {
@@ -24,6 +24,4 @@ fun countAnswersThatAllAnsweredInGroup(group: List<String>): Int {
     }
 
     return answerCount.keys.filter { answerCount[it] == group.size }.count()
-
-//    return group.flatMap { it.toCharArray().toList() }.toSet().size
 }
