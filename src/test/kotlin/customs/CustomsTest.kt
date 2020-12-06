@@ -49,7 +49,7 @@ class CustomsTest {
             b
         """.trimIndent().split("\n")
 
-        val result = countAnswersForAllGroups(parseCustoms(input))
+        val result = countAnswersForCustoms(input)
         assertEquals(11, result)
     }
 
