@@ -53,7 +53,44 @@ class CustomsTest {
         assertEquals(11, result)
     }
 
+    @Test
+    fun singleGroupAllAnswered() {
+        val input = listOf("abc")
 
+        val result = countAnswersThatAllAnsweredInGroup(input)
+        assertEquals(3, result)
+    }
 
+    @Test
+    fun singleGroupAllAnsweredNone() {
+        val input = listOf("a", "b", "c", "d")
+
+        val result = countAnswersThatAllAnsweredInGroup(input)
+        assertEquals(0, result)
+    }
+
+    @Test
+    fun singleGroupAllAnsweredOverlap() {
+        val input = listOf("ab", "ac")
+
+        val result = countAnswersThatAllAnsweredInGroup(input)
+        assertEquals(1, result)
+    }
+
+    @Test
+    fun singleGroupAllAnsweredOverlapDoesNotIncludeDuplicates() {
+        val input = listOf("abb", "ac")
+
+        val result = countAnswersThatAllAnsweredInGroup(input)
+        assertEquals(1, result)
+    }
+
+    @Test
+    fun allSingleLetterAllAnswered() {
+        val input = listOf("a", "a", "a")
+
+        val result = countAnswersPerGroup(input)
+        assertEquals(1, result)
+    }
 
 }
