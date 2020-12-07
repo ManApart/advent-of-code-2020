@@ -4,14 +4,17 @@ fun parseLuggage(lines: List<String>): List<Bag> {
     return lines.map { line ->
         val parts = line.split("bags contain")
         val id = parts[0].trim()
-        val contents = parseContents(parts)
+        val contents = parseContents(parts.last())
 
         Bag(id, contents)
     }
 }
 
-private fun parseContents(parts: List<String>): Map<String, Int> {
-    val contentsPieces = parts.last()
+private fun parseContents(contentsString: String): Map<String, Int> {
+    if (contentsString.trim() == "no other bags."){
+        return mapOf()
+    }
+    val contentsPieces = contentsString
         .replace(".", "")
         .replace("bags", "")
         .replace("bag", "")

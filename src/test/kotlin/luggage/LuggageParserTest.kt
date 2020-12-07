@@ -18,5 +18,15 @@ class LuggageParserTest {
         assertEquals(2, bag.contents["muted yellow"])
     }
 
+    @Test
+    fun parseNoContents() {
+        val input = "faded blue bags contain no other bags."
+
+        val bag = parseLuggage(listOf(input)).first()
+
+        assertEquals("faded blue", bag.id)
+        assertEquals(0, bag.contents.keys.size)
+    }
+
 
 }
