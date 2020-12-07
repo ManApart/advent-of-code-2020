@@ -4,6 +4,10 @@ fun parseAndCountLuggageAncestors(bagId: String, lines: List<String>): Int {
     return Luggage(parseLuggage(lines)).countAllAncestors(bagId)
 }
 
+fun parseAndCountLuggageDescendants(bagId: String, lines: List<String>): Long {
+    return Luggage(parseLuggage(lines)).countAllDescendants(bagId)
+}
+
 
 class Luggage(bags: List<Bag>) {
     val bags = bags.associateBy { it.id }
