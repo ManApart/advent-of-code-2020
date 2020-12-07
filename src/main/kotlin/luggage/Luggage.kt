@@ -9,6 +9,10 @@ class Luggage(bags: List<Bag>) {
         }
     }
 
+    fun countAllAncestors(bagId: String): Int {
+        return getAllAncestors(bagId).count()
+    }
+
     fun getAllAncestors(bagId: String): List<Bag> {
         val ancestors = mutableSetOf<Bag>()
         val open = bags[bagId]!!.parents
