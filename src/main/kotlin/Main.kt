@@ -3,6 +3,8 @@ import binaryBoarding.findLargestSeatID
 import binaryBoarding.parseBoardingPasses
 import customs.countAllAnswersForCustoms
 import customs.countAnswersForCustoms
+import luggage.Luggage
+import luggage.parseAndCountLuggageAncestors
 import java.io.File
 
 fun main() {
@@ -17,7 +19,8 @@ fun main() {
 //    println(findLargestSeatID(parseBoardingPasses(parseInputToStrings(5, 1))))
 //    println(findGapId(parseInputToStrings(5, 1)))
 //    println(countAnswersForCustoms(parseInputToStrings(6, 1)))
-    println(countAllAnswersForCustoms(parseInputToStrings(6, 1)))
+//    println(countAllAnswersForCustoms(parseInputToStrings(6, 1)))
+    println(parseAndCountLuggageAncestors("shiny gold", parseInputToStrings(7, 1)))
 }
 
 private fun parseInputToNumbers(day: Int, problem: Int): List<Int> {
