@@ -61,4 +61,54 @@ class LuggageTest {
         assertEquals(4, count)
     }
 
+    @Test
+    fun getShortBagDescendants() {
+        val luggage = Luggage(
+            listOf(
+                Bag("pink", mapOf("blue" to 1)),
+                Bag("blue", mapOf("red" to 1, "yellow" to 1)),
+                Bag("red", mapOf()),
+                Bag("yellow", mapOf())
+            )
+        )
+        val count = luggage.countAllDescendants("pink")
+
+
+        assertEquals(3, count)
+    }
+
+    @Test
+    fun getLongerBagDescendants() {
+        val luggage = Luggage(
+            listOf(
+                Bag("pink", mapOf("blue" to 1)),
+                Bag("blue", mapOf("red" to 2)),
+                Bag("red", mapOf("yellow" to 1)),
+                Bag("yellow", mapOf())
+            )
+        )
+        val count = luggage.countAllDescendants("pink")
+
+
+        assertEquals(5, count)
+    }
+
+    @Test
+    fun countDescendantBags() {
+        val input = """
+            shiny gold bags contain 2 dark red bags.
+            dark red bags contain 2 dark orange bags.
+            dark orange bags contain 2 dark yellow bags.
+            dark yellow bags contain 2 dark green bags.
+            dark green bags contain 2 dark blue bags.
+            dark blue bags contain 2 dark violet bags.
+            dark violet bags contain no other bags.
+        """.trimIndent().split("\n")
+
+        val luggage = Luggage(parseLuggage(input))
+        val count = luggage.countAllDescendants("shiny gold")
+
+        assertEquals(126, count)
+    }
+
 }
