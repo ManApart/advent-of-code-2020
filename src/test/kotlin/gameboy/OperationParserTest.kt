@@ -47,4 +47,18 @@ class OperationParserTest {
         assertEquals(expected, result)
     }
 
+    @Test
+    fun parseListOfOps(){
+        val input = """
+            acc +2
+            nop +0
+            jmp -3
+        """.trimIndent().split("\n")
+        val results = parseOperations(input)
+
+        assertEquals(3, results.size)
+        assertEquals(2, results.first().accInc)
+        assertEquals(-3, results.last().indexInc)
+    }
+
 }

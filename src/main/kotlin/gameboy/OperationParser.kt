@@ -1,4 +1,8 @@
 package gameboy
+fun parseOperations(lines: List<String>): List<Operation> {
+    return lines.map { parseOperation(it) }
+}
+
 
 fun parseOperation(line: String): Operation {
     val parts = line.trim().split(" ")
