@@ -7,6 +7,7 @@ fun parseOperation(line: String): Operation {
 
     return when (opName){
         "acc" -> Operation(numberPart, 1)
+        "jmp" -> Operation(0, numberPart)
         else -> Operation(0, 1)
     }
 }

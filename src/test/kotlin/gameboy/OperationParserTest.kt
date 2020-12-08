@@ -21,8 +21,15 @@ class OperationParserTest {
 
     @Test
     fun parseAcc(){
-        val result = parseOperation("acc +1")
-        val expected = Operation(1, 1, false)
+        val result = parseOperation("acc +2")
+        val expected = Operation(2, 1, false)
+        assertEquals(expected, result)
+    }
+
+    @Test
+    fun parseJmp(){
+        val result = parseOperation("jmp +4")
+        val expected = Operation(0, 4, false)
         assertEquals(expected, result)
     }
 
