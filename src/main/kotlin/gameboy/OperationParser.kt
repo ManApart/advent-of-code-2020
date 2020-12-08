@@ -1,4 +1,5 @@
 package gameboy
+
 fun parseOperations(lines: List<String>): List<Operation> {
     return lines.map { parseOperation(it) }
 }
@@ -9,9 +10,5 @@ fun parseOperation(line: String): Operation {
     val opName = parts.first()
     val numberPart = parts.last().toInt()
 
-    return when (opName){
-        "acc" -> Operation(numberPart, 1)
-        "jmp" -> Operation(0, numberPart)
-        else -> Operation(0, 1)
-    }
+    return Operation(opName, numberPart)
 }

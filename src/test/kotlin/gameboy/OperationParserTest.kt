@@ -7,44 +7,50 @@ class OperationParserTest {
 
     @Test
     fun parseNoOp(){
-        val result = parseOperation("nop +0")
-        val expected = Operation(0, 1, false)
-        assertEquals(expected, result)
+        val op = parseOperation("nop +0")
+        assertEquals("nop", op.type)
+        assertEquals(0, op.accInc)
+        assertEquals(1, op.indexInc)
     }
 
     @Test
     fun parseIgnoresSpaces(){
-        val result = parseOperation("   nop +0  ")
-        val expected = Operation(0, 1, false)
-        assertEquals(expected, result)
+        val op = parseOperation("   nop +0  ")
+        assertEquals("nop", op.type)
+        assertEquals(0, op.accInc)
+        assertEquals(1, op.indexInc)
     }
 
     @Test
     fun parseAcc(){
-        val result = parseOperation("acc +2")
-        val expected = Operation(2, 1, false)
-        assertEquals(expected, result)
+        val op = parseOperation("acc +2")
+        assertEquals("acc", op.type)
+        assertEquals(2, op.accInc)
+        assertEquals(1, op.indexInc)
     }
 
     @Test
     fun parseAccNegative(){
-        val result = parseOperation("acc -2")
-        val expected = Operation(-2, 1, false)
-        assertEquals(expected, result)
+        val op = parseOperation("acc -2")
+        assertEquals("acc", op.type)
+        assertEquals(-2, op.accInc)
+        assertEquals(1, op.indexInc)
     }
 
     @Test
     fun parseJmp(){
-        val result = parseOperation("jmp +4")
-        val expected = Operation(0, 4, false)
-        assertEquals(expected, result)
+        val op = parseOperation("jmp +4")
+        assertEquals("jmp", op.type)
+        assertEquals(0, op.accInc)
+        assertEquals(4, op.indexInc)
     }
 
     @Test
     fun parseJmpNegative(){
-        val result = parseOperation("jmp -4")
-        val expected = Operation(0, -4, false)
-        assertEquals(expected, result)
+        val op = parseOperation("jmp -4")
+        assertEquals("jmp", op.type)
+        assertEquals(0, op.accInc)
+        assertEquals(-4, op.indexInc)
     }
 
     @Test
