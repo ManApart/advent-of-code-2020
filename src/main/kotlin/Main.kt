@@ -31,7 +31,7 @@ fun main() {
 }
 
 private fun parseInputToNumbers(day: Int, problem: Int): List<Int> {
-    return File("./input/d${day}p$problem.txt").readLines().map { it.toInt() }
+    return parseInputToStrings(day, problem).map { it.toInt() }
 }
 
 private fun parseInputToStrings(day: Int, problem: Int): List<String> {
