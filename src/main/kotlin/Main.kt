@@ -3,6 +3,7 @@ import binaryBoarding.findLargestSeatID
 import binaryBoarding.parseBoardingPasses
 import customs.countAllAnswersForCustoms
 import customs.countAnswersForCustoms
+import gameboy.findAccAtByFiddlingOps
 import gameboy.findAccAtLoopStart
 import gameboy.parseOperations
 import luggage.Luggage
@@ -25,7 +26,8 @@ fun main() {
 //    println(countAllAnswersForCustoms(parseInputToStrings(6, 1)))
 //    println(parseAndCountLuggageAncestors("shiny gold", parseInputToStrings(7, 1)))
 //    println(parseAndCountLuggageDescendants("shiny gold", parseInputToStrings(7, 1)))
-    println(findAccAtLoopStart(parseOperations(parseInputToStrings(8, 1))))
+//    println(findAccAtLoopStart(parseOperations(parseInputToStrings(8, 1))))
+    println(findAccAtByFiddlingOps(parseOperations(parseInputToStrings(8, 1))))
 }
 
 private fun parseInputToNumbers(day: Int, problem: Int): List<Int> {
