@@ -1,6 +1,6 @@
 package gameboy
 
-class Operation(val type: String, number: Int, var hasRun: Boolean = false) {
+class Operation(val type: String, val number: Int, var hasRun: Boolean = false) {
     val accInc: Int = when(type) {
         "acc" -> number
         else -> 0

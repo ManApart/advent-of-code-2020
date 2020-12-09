@@ -10,6 +10,7 @@ class OperationParserTest {
         val op = parseOperation("nop +0")
         assertEquals("nop", op.type)
         assertEquals(0, op.accInc)
+        assertEquals(0, op.number)
         assertEquals(1, op.indexInc)
     }
 
@@ -26,6 +27,7 @@ class OperationParserTest {
         val op = parseOperation("acc +2")
         assertEquals("acc", op.type)
         assertEquals(2, op.accInc)
+        assertEquals(2, op.number)
         assertEquals(1, op.indexInc)
     }
 
