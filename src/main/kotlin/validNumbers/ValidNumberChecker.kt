@@ -19,6 +19,11 @@ fun isValidNumber(numberToCheck: Long, numbers: List<Long>): Boolean {
     return false
 }
 
+fun findAnyContiguousSumAndAddEnds(sumToFind: Long, numbers: List<Long>): Long {
+    val range = findAnyContiguousSum(sumToFind, numbers)
+    return numbers[range.first] + numbers[range.last]
+}
+
 fun findAnyContiguousSum(sumToFind: Long, numbers: List<Long>): IntRange {
     for (i in 0..numbers.size) {
         val sum = findContiguousSum(sumToFind, numbers.subList(i, numbers.size))

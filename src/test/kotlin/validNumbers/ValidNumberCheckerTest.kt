@@ -72,7 +72,6 @@ class ValidNumberCheckerTest {
         assertEquals(127, findFirstInvalidNumber(5,  input))
     }
 
-
     @Test
     fun findContiguousSumToNumber() {
         val input = listOf(1,2,3,5).map { it.toLong() }
@@ -80,6 +79,15 @@ class ValidNumberCheckerTest {
         assertEquals(0..1, findAnyContiguousSum(3,  input))
         assertEquals(1..2, findAnyContiguousSum(5,  input))
         assertEquals(1..3, findAnyContiguousSum(10,  input))
+    }
+
+    @Test
+    fun findContiguousSumAndAddThem() {
+        val input = listOf(1,2,3,5).map { it.toLong() }
+
+        assertEquals(3, findAnyContiguousSumAndAddEnds(3,  input))
+        assertEquals(5, findAnyContiguousSumAndAddEnds(5,  input))
+        assertEquals(7, findAnyContiguousSumAndAddEnds(10,  input))
     }
 
 }
