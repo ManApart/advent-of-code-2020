@@ -96,4 +96,24 @@ class AdapterPlannerTest {
     }
 
 
+    @Test
+    fun part2Example1() {
+        val input = """
+            16
+            10
+            15
+            5
+            1
+            11
+            7
+            19
+            6
+            12
+            4
+        """.trimIndent().split("\n").map { it.toInt() }
+        val voltageMath = countChainArrangementOptions(input)
+
+        assertEquals(7, voltageMath)
+    }
+
 }
