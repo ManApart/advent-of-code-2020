@@ -25,23 +25,41 @@ fun findVoltageCounts(numbers: List<Int>): Map<Int, Int> {
 
 fun countChainArrangementOptions(numbers: List<Int>): Double {
     val count = countOptionalNumbers(numbers)
-//    return count.factorial()
-    return 2.toDouble().pow(count.toDouble())
-//    return count * 2.toDouble()
+    return optionsToArrangementCount(count.first, count.second)
 }
 
-fun countOptionalNumbers(numbers: List<Int>): Int {
-    var optionalCount = 0
-    var last = 0
-    numbers.sorted().windowed(2, 1).forEach { window ->
-        if (window.last() - last <= 3) {
-            //window.first is optional
-            optionalCount++
-        }
-        last = window.first()
-    }
+fun optionsToArrangementCount(optional: Int, partial: Int): Double {
+    return 2.toDouble().pow(optional.toDouble()) + partial * 2
+}
 
-    return optionalCount
+
+fun countOptionalNumbers(numbers: List<Int>): Pair<Int, Int> {
+    var optionalCount = 0
+    var partialCount = 0
+    for (i in 0 until numbers.size - 1) {
+        val inspected = numbers[i]
+        val next = numbers[i + 1]
+        val previous = numbers.getOrNull(i-1) ?: 0
+        val beforeThat = numbers.getOrNull(i-2) ?: 0
+
+        if (inspected - previous < 3 && next - previous < 3) {
+            if (inspected - beforeThat < 3 && next - beforeThat < 3) {
+                partialCount++
+            } else {
+                optionalCount++
+            }
+        }
+    }
+//    numbers.sorted().windowed(2, 1).forEach { window ->
+//        val inspected = window[1]
+//        if (inspected - last <= 3) {
+//            //window.first is optional
+//            optionalCount++
+//        }
+//        last = window.first()
+//    }
+
+    return Pair(optionalCount, partialCount)
 }
 
 fun Int.factorial(): Double {

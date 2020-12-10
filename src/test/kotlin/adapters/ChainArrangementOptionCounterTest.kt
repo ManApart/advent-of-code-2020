@@ -78,16 +78,24 @@ class ChainArrangementOptionCounterTest {
 
 
     @Test
+    fun optionsToArrangementCount() {
+        assertEquals(8.toDouble(), optionsToArrangementCount(3, 0))
+        assertEquals(2.toDouble(), optionsToArrangementCount(1, 0))
+        assertEquals(6.toDouble(), optionsToArrangementCount(2, 1))
+//        assertEquals(6.toDouble(), optionsToArrangementCount(1, 2))
+    }
+
+    @Test
     fun countOptionalNumbers() {
-        assertEquals(1, countOptionalNumbers(simpleInput))
-        assertEquals(3, countOptionalNumbers(threeOptionalInputOverlap))
-        assertEquals(3, countOptionalNumbers(threeOptionalInputNoOverlap))
-        assertEquals(3, countOptionalNumbers(example1Input))
+//        assertEquals(Pair(1, 0), countOptionalNumbers(simpleInput))
+//        assertEquals(Pair(3, 0), countOptionalNumbers(threeOptionalInputNoOverlap))
+        assertEquals(Pair(2, 1), countOptionalNumbers(threeOptionalInputOverlap))
+        assertEquals(Pair(3, 0), countOptionalNumbers(example1Input))
     }
 
     @Test
     fun countOptionalNumbersUnOrdered() {
-        assertEquals(1, countOptionalNumbers(simpleInput.reversed()))
+        assertEquals(Pair(1, 0), countOptionalNumbers(simpleInput.reversed()))
     }
 
     @Test
