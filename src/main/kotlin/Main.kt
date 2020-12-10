@@ -1,3 +1,4 @@
+import adapters.findProductOfVoltageCounts
 import validNumbers.findAnyContiguousSumAndAddLargestAndSmallest
 import java.io.File
 
@@ -19,7 +20,8 @@ fun main() {
 //    println(findAccAtLoopStart(parseOperations(parseInputToStrings(8, 1))))
 //    println(findAccAtByFiddlingOps(parseOperations(parseInputToStrings(8, 1))))
 //    println(findFirstInvalidNumber(25, parseInputToLongs(9, 1)))
-    println(findAnyContiguousSumAndAddLargestAndSmallest(85848519, parseInputToLongs(9, 1)))
+//    println(findAnyContiguousSumAndAddLargestAndSmallest(85848519, parseInputToLongs(9, 1)))
+    println(findProductOfVoltageCounts(parseInputToNumbers(10, 1)))
 }
 
 private fun parseInputToNumbers(day: Int, problem: Int): List<Int> {
