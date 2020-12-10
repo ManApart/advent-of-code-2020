@@ -25,8 +25,9 @@ fun findVoltageCounts(numbers: List<Int>): Map<Int, Int> {
 
 fun countChainArrangementOptions(numbers: List<Int>): Double {
     val count = countOptionalNumbers(numbers)
+//    return count.factorial()
     return 2.toDouble().pow(count.toDouble())
-
+//    return count * 2.toDouble()
 }
 
 fun countOptionalNumbers(numbers: List<Int>): Int {
@@ -41,4 +42,12 @@ fun countOptionalNumbers(numbers: List<Int>): Int {
     }
 
     return optionalCount
+}
+
+fun Int.factorial(): Double {
+    return if (this <= 1) {
+        this.toDouble()
+    } else {
+        this.toDouble() * (this - 1).factorial()
+    }
 }
