@@ -73,4 +73,13 @@ class ValidNumberCheckerTest {
     }
 
 
+    @Test
+    fun findContiguousSumToNumber() {
+        val input = listOf(1,2,3,5).map { it.toLong() }
+
+        assertEquals(0..1, findAnyContiguousSum(3,  input))
+        assertEquals(1..2, findAnyContiguousSum(5,  input))
+        assertEquals(1..3, findAnyContiguousSum(10,  input))
+    }
+
 }
