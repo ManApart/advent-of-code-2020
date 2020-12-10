@@ -19,8 +19,21 @@ class AdapterPlannerTest {
 
         assertEquals(expected, voltageMath)
     }
-    
-    //reverse input
+
+    @Test
+    fun findVoltageCountsOutOfOrder() {
+        val input = """
+            1
+            7
+            4
+            3
+            2
+        """.trimIndent().split("\n").map { it.toInt() }
+        val voltageMath = findVoltageCounts(input)
+        val expected = mapOf(1 to 3, 3 to 1)
+
+        assertEquals(expected, voltageMath)
+    }
 
 //    @Test
 //    fun part1Example1() {
