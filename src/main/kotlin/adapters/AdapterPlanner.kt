@@ -1,5 +1,7 @@
 package adapters
 
+import kotlin.math.pow
+
 fun findProductOfVoltageCounts(numbers: List<Int>): Int {
     val counts = findVoltageCounts(numbers)
     return (counts[1] ?: 0) * (counts[3] ?: 0)
@@ -21,7 +23,22 @@ fun findVoltageCounts(numbers: List<Int>): Map<Int, Int> {
     return voltageCounts
 }
 
+fun countChainArrangementOptions(numbers: List<Int>): Double {
+    val count = countOptionalNumbers(numbers)
+    return 2.toDouble().pow(count.toDouble())
 
-fun countChainArrangementOptions(numbers: List<Int>): Int {
-    return 0
+}
+
+fun countOptionalNumbers(numbers: List<Int>): Int {
+    var optionalCount = 0
+    var last = 0
+    numbers.sorted().windowed(2, 1).forEach { window ->
+        if (window.last() - last <= 3) {
+            //window.first is optional
+            optionalCount++
+        }
+        last = window.first()
+    }
+
+    return optionalCount
 }

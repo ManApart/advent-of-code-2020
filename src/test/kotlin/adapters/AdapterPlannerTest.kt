@@ -95,6 +95,66 @@ class AdapterPlannerTest {
         assertEquals(22*10, voltageMath)
     }
 
+    @Test
+    fun countOptionalNumbers() {
+        val input = """
+            1
+            4
+            6
+            7
+        """.trimIndent().split("\n").map { it.toInt() }
+        val count = countOptionalNumbers(input)
+
+        assertEquals(1, count)
+    }
+
+    @Test
+    fun countOptionalNumbersUnOrdered() {
+        val input = """
+            1
+            6
+            4
+            7
+        """.trimIndent().split("\n").map { it.toInt() }
+        val count = countOptionalNumbers(input)
+
+        assertEquals(1, count)
+    }
+
+    @Test
+    fun countOptionalNumbersLarger() {
+        val input = """
+            16
+            10
+            15
+            5
+            1
+            11
+            7
+            19
+            6
+            12
+            4
+        """.trimIndent().split("\n").map { it.toInt() }
+        val count = countOptionalNumbers(input)
+
+        assertEquals(3, count)
+    }
+
+    @Test
+    fun simpleCountChainArrangementOptions() {
+        //1,4,6,7
+        //1,4,7
+        val input = """
+            1
+            4
+            6
+            7
+        """.trimIndent().split("\n").map { it.toInt() }
+        val count = countChainArrangementOptions(input)
+
+        assertEquals(2.toDouble(), count)
+    }
 
     @Test
     fun part2Example1() {
@@ -113,7 +173,7 @@ class AdapterPlannerTest {
         """.trimIndent().split("\n").map { it.toInt() }
         val voltageMath = countChainArrangementOptions(input)
 
-        assertEquals(7, voltageMath)
+        assertEquals(8.toDouble(), voltageMath)
     }
 
 }
