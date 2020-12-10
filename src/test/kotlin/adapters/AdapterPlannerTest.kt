@@ -55,5 +55,45 @@ class AdapterPlannerTest {
         assertEquals(7*5, voltageMath)
     }
 
+    @Test
+    fun part1Example2() {
+        val input = """
+            28
+            33
+            18
+            42
+            31
+            14
+            46
+            20
+            48
+            47
+            24
+            23
+            49
+            45
+            19
+            38
+            39
+            11
+            1
+            32
+            25
+            35
+            8
+            17
+            7
+            9
+            4
+            2
+            34
+            10
+            3
+        """.trimIndent().split("\n").map { it.toInt() }
+        val voltageMath = findProductOfVoltageCounts(input)
+
+        assertEquals(22*10, voltageMath)
+    }
+
 
 }
