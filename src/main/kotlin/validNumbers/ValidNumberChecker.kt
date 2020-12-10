@@ -1,6 +1,6 @@
 package validNumbers
 
-fun findFirstInvalidNumber(lookBack: Int, numbers: List<Int>): Int {
+fun findFirstInvalidNumber(lookBack: Int, numbers: List<Long>): Long {
     for (i in lookBack..numbers.size) {
         val possible = numbers[i]
         val subsection = numbers.subList(i - lookBack, i)
@@ -11,7 +11,7 @@ fun findFirstInvalidNumber(lookBack: Int, numbers: List<Int>): Int {
     return -1
 }
 
-fun isValidNumber(numberToCheck: Int, numbers: List<Int>): Boolean {
+fun isValidNumber(numberToCheck: Long, numbers: List<Long>): Boolean {
     numbers.forEach { first ->
         numbers.forEach { second ->
             if (first != second && first + second == numberToCheck) {

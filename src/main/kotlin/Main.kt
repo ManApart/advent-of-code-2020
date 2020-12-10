@@ -9,6 +9,7 @@ import gameboy.parseOperations
 import luggage.Luggage
 import luggage.parseAndCountLuggageAncestors
 import luggage.parseAndCountLuggageDescendants
+import validNumbers.findFirstInvalidNumber
 import java.io.File
 
 fun main() {
@@ -27,11 +28,16 @@ fun main() {
 //    println(parseAndCountLuggageAncestors("shiny gold", parseInputToStrings(7, 1)))
 //    println(parseAndCountLuggageDescendants("shiny gold", parseInputToStrings(7, 1)))
 //    println(findAccAtLoopStart(parseOperations(parseInputToStrings(8, 1))))
-    println(findAccAtByFiddlingOps(parseOperations(parseInputToStrings(8, 1))))
+//    println(findAccAtByFiddlingOps(parseOperations(parseInputToStrings(8, 1))))
+    println(findFirstInvalidNumber(25, parseInputToLongs(9, 1)))
 }
 
 private fun parseInputToNumbers(day: Int, problem: Int): List<Int> {
     return parseInputToStrings(day, problem).map { it.toInt() }
+}
+
+private fun parseInputToLongs(day: Int, problem: Int): List<Long> {
+    return parseInputToStrings(day, problem).map { it.toLong() }
 }
 
 private fun parseInputToStrings(day: Int, problem: Int): List<String> {

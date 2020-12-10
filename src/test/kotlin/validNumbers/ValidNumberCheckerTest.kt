@@ -9,7 +9,7 @@ class ValidNumberCheckerTest {
 
     @Test
     fun validValue() {
-        val input = listOf(1,2,3)
+        val input = listOf(1,2,3).map { it.toLong() }
 
         assertTrue(isValidNumber(4, input))
         assertTrue(isValidNumber(5, input))
@@ -17,14 +17,14 @@ class ValidNumberCheckerTest {
 
     @Test
     fun validValueWithDifferentLookback() {
-        val input = listOf(2,3)
+        val input = listOf(2,3).map { it.toLong() }
 
         assertTrue(isValidNumber(5, input))
     }
 
     @Test
     fun invalidValues() {
-        val input = listOf(1,2,3)
+        val input = listOf(1,2,3).map { it.toLong() }
 
         assertFalse(isValidNumber(6, input))
         assertFalse(isValidNumber(2, input), "Can't use duplicate numbers")
@@ -32,14 +32,14 @@ class ValidNumberCheckerTest {
 
     @Test
     fun invalidValuesWithDifferentLookback() {
-        val input = listOf(2,3)
+        val input = listOf(2,3).map { it.toLong() }
 
         assertFalse(isValidNumber(4, input))
     }
 
     @Test
     fun findInvalidCase() {
-        val input = listOf(0,2,3,4)
+        val input = listOf(0,2,3,4).map { it.toLong() }
 
         assertEquals(4, findFirstInvalidNumber(3,  input))
     }
@@ -67,7 +67,7 @@ class ValidNumberCheckerTest {
             277
             309
             576
-        """.trimIndent().split("\n").map { it.toInt() }
+        """.trimIndent().split("\n").map { it.toLong() }
 
         assertEquals(127, findFirstInvalidNumber(5,  input))
     }
