@@ -82,12 +82,57 @@ class ValidNumberCheckerTest {
     }
 
     @Test
+    fun findContiguousSumToNumberReversed() {
+        val input = listOf(5,3,2,1).map { it.toLong() }
+
+        assertEquals(2..3, findAnyContiguousSum(3,  input))
+        assertEquals(1..2, findAnyContiguousSum(5,  input))
+        assertEquals(0..2, findAnyContiguousSum(10,  input))
+    }
+
+    @Test
     fun findContiguousSumAndAddThem() {
         val input = listOf(1,2,3,5).map { it.toLong() }
 
-        assertEquals(3, findAnyContiguousSumAndAddEnds(3,  input))
-        assertEquals(5, findAnyContiguousSumAndAddEnds(5,  input))
-        assertEquals(7, findAnyContiguousSumAndAddEnds(10,  input))
+        assertEquals(3, findAnyContiguousSumAndAddLargestAndSmallest(3,  input))
+        assertEquals(5, findAnyContiguousSumAndAddLargestAndSmallest(5,  input))
+        assertEquals(7, findAnyContiguousSumAndAddLargestAndSmallest(10,  input))
+    }
+
+    @Test
+    fun findContiguousSumAndAddTheSmallestAndLargest() {
+        val input = listOf(5,4,3,1,2).map { it.toLong() }
+
+        assertEquals(3, findAnyContiguousSumAndAddLargestAndSmallest(3,  input))
+        assertEquals(5, findAnyContiguousSumAndAddLargestAndSmallest(10,  input))
+    }
+
+    @Test
+    fun findContiguousSumAndAddThemPart2Example() {
+        val input = """
+            35
+            20
+            15
+            25
+            47
+            40
+            62
+            55
+            65
+            95
+            102
+            117
+            150
+            182
+            127
+            219
+            299
+            277
+            309
+            576
+        """.trimIndent().split("\n").map { it.toLong() }
+
+        assertEquals(62, findAnyContiguousSumAndAddLargestAndSmallest(127,  input))
     }
 
 }

@@ -1,15 +1,4 @@
-import binaryBoarding.findGapId
-import binaryBoarding.findLargestSeatID
-import binaryBoarding.parseBoardingPasses
-import customs.countAllAnswersForCustoms
-import customs.countAnswersForCustoms
-import gameboy.findAccAtByFiddlingOps
-import gameboy.findAccAtLoopStart
-import gameboy.parseOperations
-import luggage.Luggage
-import luggage.parseAndCountLuggageAncestors
-import luggage.parseAndCountLuggageDescendants
-import validNumbers.findFirstInvalidNumber
+import validNumbers.findAnyContiguousSumAndAddLargestAndSmallest
 import java.io.File
 
 fun main() {
@@ -29,7 +18,8 @@ fun main() {
 //    println(parseAndCountLuggageDescendants("shiny gold", parseInputToStrings(7, 1)))
 //    println(findAccAtLoopStart(parseOperations(parseInputToStrings(8, 1))))
 //    println(findAccAtByFiddlingOps(parseOperations(parseInputToStrings(8, 1))))
-    println(findFirstInvalidNumber(25, parseInputToLongs(9, 1)))
+//    println(findFirstInvalidNumber(25, parseInputToLongs(9, 1)))
+    println(findAnyContiguousSumAndAddLargestAndSmallest(85848519, parseInputToLongs(9, 1)))
 }
 
 private fun parseInputToNumbers(day: Int, problem: Int): List<Int> {
